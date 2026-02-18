@@ -17,40 +17,40 @@ const Insights = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-3">Your Insights</h1>
-            <p className="text-lg text-muted-foreground">Personalized patterns and tips based on your mood data.</p>
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2 md:mb-3">Your Insights</h1>
+            <p className="text-base md:text-lg text-muted-foreground">Personalized patterns and tips based on your mood data.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="p-8 border-t-4 border-yunity-teal text-center">
-              <p className="text-sm text-muted-foreground mb-2">Weekly Mood Score</p>
-              <p className="text-5xl font-bold text-primary">{weeklyScore}</p>
-              <p className="text-sm text-muted-foreground mt-2">out of 10</p>
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+            <Card className="p-5 md:p-8 border-t-4 border-yunity-teal text-center">
+              <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">Weekly Mood Score</p>
+              <p className="text-3xl md:text-5xl font-bold text-primary">{weeklyScore}</p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-2">out of 10</p>
             </Card>
-            <Card className="p-8 border-t-4 border-yunity-yellow text-center">
-              <p className="text-sm text-muted-foreground mb-2">Monthly Trend</p>
-              <p className="text-5xl font-bold text-secondary">{monthlyTrend}</p>
-              <p className="text-sm text-muted-foreground mt-2">improvement</p>
+            <Card className="p-5 md:p-8 border-t-4 border-yunity-yellow text-center">
+              <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">Monthly Trend</p>
+              <p className="text-3xl md:text-5xl font-bold text-secondary">{monthlyTrend}</p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-2">improvement</p>
             </Card>
           </div>
 
-          <h2 className="text-2xl font-bold text-foreground mb-6">Key Insights</h2>
-          <div className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Key Insights</h2>
+          <div className="space-y-3 md:space-y-4">
             {insights.map((insight, i) => (
-              <Card key={i} className="p-6 hover:shadow-md transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 rounded-lg p-3 flex-shrink-0">
-                    <insight.icon className="w-6 h-6 text-primary" />
+              <Card key={i} className="p-4 md:p-6 hover:shadow-md transition-all">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="bg-primary/10 rounded-lg p-2.5 md:p-3 flex-shrink-0">
+                    <insight.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-bold text-foreground">{insight.title}</h3>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-1 md:mb-2">
+                      <h3 className="font-bold text-foreground text-sm md:text-base">{insight.title}</h3>
                       <Badge variant="secondary" className="text-xs">{insight.type}</Badge>
                     </div>
-                    <p className="text-muted-foreground">{insight.description}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{insight.description}</p>
                   </div>
                 </div>
               </Card>

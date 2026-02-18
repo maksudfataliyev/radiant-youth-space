@@ -48,32 +48,32 @@ const GroupChats = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-3">Group Chats</h1>
-            <p className="text-lg text-muted-foreground">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2 md:mb-3">Group Chats</h1>
+            <p className="text-base md:text-lg text-muted-foreground">
               Join communities of peers who share similar experiences and interests.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {groups.map((group) => (
-              <Card key={group.id} className="p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-yunity-teal">
-                <div className="flex items-start justify-between mb-4">
+              <Card key={group.id} className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-yunity-teal">
+                <div className="flex items-start justify-between mb-3 md:mb-4">
                   <div className="flex items-center gap-3">
-                    <div className={`bg-${group.color} rounded-full p-3`}>
-                      <Users className="w-6 h-6 text-white" />
+                    <div className="bg-primary rounded-full p-2 md:p-3 flex-shrink-0">
+                      <Users className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
                     </div>
-                    <div>
-                      <h2 className="text-xl font-bold text-foreground">{group.name}</h2>
+                    <div className="min-w-0">
+                      <h2 className="text-base md:text-xl font-bold text-foreground">{group.name}</h2>
                       <div className="flex items-center gap-2 mt-1">
                         {group.isPrivate ? (
-                          <Lock className="w-4 h-4 text-muted-foreground" />
+                          <Lock className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground" />
                         ) : (
-                          <Globe className="w-4 h-4 text-muted-foreground" />
+                          <Globe className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground" />
                         )}
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-xs md:text-sm text-muted-foreground">
                           {group.isPrivate ? "Private" : "Public"}
                         </span>
                       </div>
@@ -81,19 +81,19 @@ const GroupChats = () => {
                   </div>
                 </div>
 
-                <p className="text-foreground mb-4">{group.description}</p>
+                <p className="text-sm md:text-base text-foreground mb-3 md:mb-4">{group.description}</p>
 
-                <div className="flex items-center gap-4 mb-4">
-                  <Badge variant="secondary" className="text-sm">
+                <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                  <Badge variant="secondary" className="text-xs md:text-sm">
                     {group.members} members
                   </Badge>
                   <div className="flex items-center gap-1">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm text-muted-foreground">{group.online} online</span>
+                    <span className="text-xs md:text-sm text-muted-foreground">{group.online} online</span>
                   </div>
                 </div>
 
-                <Button variant="default" className="w-full">
+                <Button variant="default" className="w-full text-sm md:text-base">
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Join Group
                 </Button>
@@ -101,15 +101,15 @@ const GroupChats = () => {
             ))}
           </div>
 
-          <Card className="mt-8 p-8 bg-primary/5 border-primary">
+          <Card className="mt-6 md:mt-8 p-6 md:p-8 bg-primary/5 border-primary">
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-foreground mb-3">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2 md:mb-3">
                 Want to start your own group?
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
                 Create a safe space for others who share your experiences.
               </p>
-              <Button variant="hero">
+              <Button variant="hero" className="w-full sm:w-auto">
                 <Users className="w-5 h-5 mr-2" />
                 Create New Group
               </Button>
