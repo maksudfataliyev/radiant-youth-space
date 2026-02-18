@@ -46,43 +46,42 @@ const PeerSupport = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-3">Peer Support Forum</h1>
-            <p className="text-lg text-muted-foreground">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2 md:mb-3">Peer Support Forum</h1>
+            <p className="text-base md:text-lg text-muted-foreground">
               A safe space to share your story, support others, and connect with peers who understand.
             </p>
           </div>
 
-          <div className="mb-8">
-            <Button variant="hero" size="lg" className="w-full md:w-auto">
+          <div className="mb-6 md:mb-8">
+            <Button variant="hero" size="lg" className="w-full sm:w-auto">
               <MessageCircle className="w-5 h-5 mr-2" />
               Start a New Discussion
             </Button>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {posts.map((post) => (
-              <Card key={post.id} className="p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-start gap-4">
-                  <Avatar className="bg-primary">
-                    <AvatarFallback className="bg-primary text-primary-foreground font-bold">
+              <Card key={post.id} className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <Avatar className="bg-primary flex-shrink-0 w-9 h-9 md:w-10 md:h-10">
+                    <AvatarFallback className="bg-primary text-primary-foreground font-bold text-xs md:text-sm">
                       {post.avatar}
                     </AvatarFallback>
                   </Avatar>
                   
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-foreground">{post.author}</h3>
-                      <span className="text-sm text-muted-foreground">{post.time}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <h3 className="font-bold text-foreground text-sm md:text-base">{post.author}</h3>
+                      <span className="text-xs md:text-sm text-muted-foreground">{post.time}</span>
                     </div>
                     
-                    <h2 className="text-xl font-semibold text-foreground mb-3">{post.topic}</h2>
+                    <h2 className="text-base md:text-xl font-semibold text-foreground mb-2">{post.topic}</h2>
+                    <p className="text-sm md:text-base text-foreground mb-3">{post.content}</p>
                     
-                    <p className="text-foreground mb-4">{post.content}</p>
-                    
-                    <div className="flex items-center gap-2 mb-4">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
                       {post.tags.map((tag) => (
                         <Badge key={tag} variant="secondary" className="text-xs">
                           {tag}
@@ -90,20 +89,20 @@ const PeerSupport = () => {
                       ))}
                     </div>
                     
-                    <div className="flex items-center gap-6">
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                    <div className="flex items-center gap-4 md:gap-6">
+                      <button className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
                         <MessageCircle className="w-4 h-4" />
-                        <span className="text-sm">{post.replies} replies</span>
+                        <span className="text-xs md:text-sm">{post.replies} replies</span>
                       </button>
                       
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+                      <button className="flex items-center gap-1.5 text-muted-foreground hover:text-accent transition-colors">
                         <Heart className="w-4 h-4" />
-                        <span className="text-sm">{post.likes} likes</span>
+                        <span className="text-xs md:text-sm">{post.likes} likes</span>
                       </button>
                       
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-secondary transition-colors">
+                      <button className="flex items-center gap-1.5 text-muted-foreground hover:text-secondary transition-colors">
                         <ThumbsUp className="w-4 h-4" />
-                        <span className="text-sm">Support</span>
+                        <span className="text-xs md:text-sm">Support</span>
                       </button>
                     </div>
                   </div>

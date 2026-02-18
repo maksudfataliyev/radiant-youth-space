@@ -27,42 +27,42 @@ const MessageBoard = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">Message Board</h1>
-              <p className="text-lg text-muted-foreground">Share thoughts, ask questions, and connect with the community.</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-1 md:mb-3">Message Board</h1>
+              <p className="text-sm md:text-lg text-muted-foreground">Share thoughts, ask questions, and connect with the community.</p>
             </div>
-            <Button variant="hero"><MessageSquare className="w-5 h-5 mr-2" />New Thread</Button>
+            <Button variant="hero" className="w-full sm:w-auto flex-shrink-0"><MessageSquare className="w-4 h-4 mr-2" />New Thread</Button>
           </div>
 
-          <Card className="p-4 mb-8">
+          <Card className="p-3 md:p-4 mb-6 md:mb-8">
             <Input placeholder="Search threads..." className="border-none shadow-none" />
           </Card>
 
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3">
             {threads.map((thread) => (
-              <Card key={thread.id} className="p-5 hover:shadow-md transition-all cursor-pointer hover:border-primary/30">
-                <div className="flex items-start gap-4">
-                  <div className="flex flex-col items-center gap-1 text-muted-foreground min-w-[50px]">
-                    <ArrowUp className="w-5 h-5 hover:text-primary cursor-pointer" />
-                    <span className="text-sm font-semibold">{thread.replies}</span>
+              <Card key={thread.id} className="p-3 md:p-5 hover:shadow-md transition-all cursor-pointer hover:border-primary/30">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="flex flex-col items-center gap-1 text-muted-foreground min-w-[40px] md:min-w-[50px]">
+                    <ArrowUp className="w-4 h-4 md:w-5 md:h-5 hover:text-primary cursor-pointer" />
+                    <span className="text-xs md:text-sm font-semibold">{thread.replies}</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      {thread.pinned && <Pin className="w-4 h-4 text-primary" />}
-                      <h3 className="text-lg font-semibold text-foreground hover:text-primary transition-colors">{thread.title}</h3>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      {thread.pinned && <Pin className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />}
+                      <h3 className="text-sm md:text-lg font-semibold text-foreground hover:text-primary transition-colors">{thread.title}</h3>
                     </div>
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap items-center gap-1.5 md:gap-3 text-xs md:text-sm text-muted-foreground">
                       <span>{thread.author}</span>
                       <span>•</span>
                       <span>{thread.views} views</span>
-                      <span>•</span>
-                      <div className="flex items-center gap-1"><Clock className="w-3 h-3" />{thread.lastActive}</div>
+                      <span className="hidden sm:inline">•</span>
+                      <div className="hidden sm:flex items-center gap-1"><Clock className="w-3 h-3" />{thread.lastActive}</div>
                     </div>
                   </div>
-                  <Badge className={categoryColors[thread.category] || ""}>{thread.category}</Badge>
+                  <Badge className={`${categoryColors[thread.category] || ""} text-xs flex-shrink-0`}>{thread.category}</Badge>
                 </div>
               </Card>
             ))}

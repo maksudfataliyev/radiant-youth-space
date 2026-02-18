@@ -22,41 +22,41 @@ const BookSession = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-3">Book a Session</h1>
-            <p className="text-lg text-muted-foreground">Schedule a one-on-one session with a mental health professional.</p>
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2 md:mb-3">Book a Session</h1>
+            <p className="text-base md:text-lg text-muted-foreground">Schedule a one-on-one session with a mental health professional.</p>
           </div>
 
-          <div className="space-y-8">
-            <Card className="p-6">
-              <Label className="text-lg font-semibold mb-4 block">Session Type</Label>
-              <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-5 md:space-y-8">
+            <Card className="p-4 md:p-6">
+              <Label className="text-base md:text-lg font-semibold mb-3 md:mb-4 block">Session Type</Label>
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {sessionTypes.map((type) => (
                   <button
                     key={type.label}
                     onClick={() => setSelectedType(type.label)}
-                    className={`p-4 rounded-lg border-2 transition-all flex flex-col items-center gap-2 ${
+                    className={`p-3 md:p-4 rounded-lg border-2 transition-all flex flex-col items-center gap-1.5 md:gap-2 ${
                       selectedType === type.label ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
                     }`}
                   >
-                    <type.icon className="w-8 h-8 text-primary" />
-                    <span className="font-semibold">{type.label}</span>
-                    <span className="text-xs text-muted-foreground">{type.description}</span>
+                    <type.icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+                    <span className="font-semibold text-sm md:text-base">{type.label}</span>
+                    <span className="text-xs text-muted-foreground text-center">{type.description}</span>
                   </button>
                 ))}
               </div>
             </Card>
 
-            <Card className="p-6">
-              <Label className="text-lg font-semibold mb-4 block"><Calendar className="w-5 h-5 inline mr-2" />Select Date</Label>
-              <div className="flex gap-3 flex-wrap">
+            <Card className="p-4 md:p-6">
+              <Label className="text-base md:text-lg font-semibold mb-3 md:mb-4 block"><Calendar className="w-4 h-4 md:w-5 md:h-5 inline mr-2" />Select Date</Label>
+              <div className="flex gap-2 md:gap-3 flex-wrap">
                 {dates.map((date) => (
                   <button
                     key={date}
                     onClick={() => setSelectedDate(date)}
-                    className={`px-5 py-3 rounded-lg border-2 font-medium transition-all ${
+                    className={`px-3 md:px-5 py-2 md:py-3 rounded-lg border-2 font-medium text-sm md:text-base transition-all ${
                       selectedDate === date ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary/50"
                     }`}
                   >
@@ -66,14 +66,14 @@ const BookSession = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
-              <Label className="text-lg font-semibold mb-4 block"><Clock className="w-5 h-5 inline mr-2" />Select Time</Label>
-              <div className="flex gap-3 flex-wrap">
+            <Card className="p-4 md:p-6">
+              <Label className="text-base md:text-lg font-semibold mb-3 md:mb-4 block"><Clock className="w-4 h-4 md:w-5 md:h-5 inline mr-2" />Select Time</Label>
+              <div className="flex gap-2 md:gap-3 flex-wrap">
                 {times.map((time) => (
                   <button
                     key={time}
                     onClick={() => setSelectedTime(time)}
-                    className={`px-5 py-3 rounded-lg border-2 font-medium transition-all ${
+                    className={`px-3 md:px-5 py-2 md:py-3 rounded-lg border-2 font-medium text-sm md:text-base transition-all ${
                       selectedTime === time ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary/50"
                     }`}
                   >
@@ -83,9 +83,9 @@ const BookSession = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
-              <Label className="text-lg font-semibold mb-4 block">What would you like to discuss? (optional)</Label>
-              <Textarea placeholder="Share any topics or concerns you'd like to address..." className="min-h-[100px]" />
+            <Card className="p-4 md:p-6">
+              <Label className="text-base md:text-lg font-semibold mb-3 md:mb-4 block">What would you like to discuss? (optional)</Label>
+              <Textarea placeholder="Share any topics or concerns you'd like to address..." className="min-h-[80px] md:min-h-[100px]" />
             </Card>
 
             <Button variant="hero" size="lg" className="w-full" disabled={!selectedDate || !selectedTime || !selectedType}>
